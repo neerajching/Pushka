@@ -32,7 +32,7 @@ struct AddBookView: View {
                         Image(systemName: "magnifyingglass")
                             .font(.title2)
                             .padding(10)
-                            .background(Color.blue)
+                            .background(Color.gray)
                             .foregroundColor(.white)
                             .clipShape(Circle())
                     }

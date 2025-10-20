@@ -12,68 +12,101 @@ struct HomeView: View {
     @State private var selectedBook: Book? = nil
     @State private var currentIndex: Int = 0
     @State private var showAddBookView = false
+    @State private var selectedFilter: BookStatus? = nil
+    
+    // MARK: - Filtered Books
+        var filteredBooks: [Book] {
+            guard let filter = selectedFilter else { return homeVM.books }
+            return homeVM.books.filter { $0.status == filter }
+        }
+
     
     var bookCorouselView : some View {
-        // MARK: book carousel
-        VStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 16) {
-                    ForEach(Array(homeVM.books.enumerated()), id: \.offset) { index, book in
-                        GeometryReader { proxy in
-                            let midX = proxy.frame(in: .global).midX
-                            let screenMidX = UIScreen.main.bounds.midX
-                            let distance = abs(screenMidX - midX)
-                            let scale = max(0.8, 1.1 - (distance / 400))
-                            
-                            AsyncImage(url: book.coverURL) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 200, height: 270)
-                                    .cornerRadius(12)
-                                    .shadow(radius: 5)
-                                    .scaleEffect(scale)
-                                    .animation(.easeInOut(duration: 0.25), value: scale)
-                            } placeholder: {
-                                Rectangle()
-                                    .fill(Color.gray.opacity(0.3))
-                                    .overlay(Image(systemName: "book.closed")
-                                        .foregroundColor(.gray))
-                                    .frame(width: 200, height: 270)
-                                    .cornerRadius(12)
-                                    .scaleEffect(scale)
-                            }
-                            .onChange(of: distance) { _ in
-                                // Detect when the book is centered
-                                if distance < 20 {
-                                    withAnimation(.easeInOut(duration: 0.4)) {
-                                        selectedBook = book
-                                        currentIndex = index
+        VStack{
+            // Picker
+            Picker("Filter", selection: $selectedFilter) {
+                Text("All").tag(BookStatus?.none)
+                ForEach(BookStatus.allCases) { status in
+                    Text(status.rawValue).tag(Optional(status))
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding(.horizontal)
+            .padding(.top, 8)
+            
+            Spacer()
+            // MARK: book carousel
+            VStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 16) {
+                        ForEach(Array(filteredBooks.enumerated()), id: \.offset) { index, book in
+                            GeometryReader { proxy in
+                                let midX = proxy.frame(in: .global).midX
+                                let screenMidX = UIScreen.main.bounds.midX
+                                let distance = abs(screenMidX - midX)
+                                let scale = max(0.8, 1.1 - (distance / 400))
+                                
+                                NavigationLink(
+                                    destination: BookDetailView(book: book)
+                                        //.transition(.move(edge: .bottom))
+                                        //.animation(.spring(), value: book)
+                                ){
+                                    AsyncImage(url: book.coverURL) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 200, height: 270)
+                                            .cornerRadius(12)
+                                            .shadow(radius: 5)
+                                            .scaleEffect(scale)
+                                            .animation(.easeInOut(duration: 0.25), value: scale)
+                                    } placeholder: {
+                                        Rectangle()
+                                            .fill(Color.gray.opacity(0.3))
+                                            .overlay(Image(systemName: "book.closed")
+                                                .foregroundColor(.gray))
+                                            .frame(width: 200, height: 270)
+                                            .cornerRadius(12)
+                                            .scaleEffect(scale)
+                                    }
+                                }
+                                
+                                .buttonStyle(.plain)
+                                .onChange(of: distance) { _ in
+                                    // Detect when the book is centered
+                                    if distance < 20 {
+                                        withAnimation(.easeInOut(duration: 0.4)) {
+                                            selectedBook = book
+                                            currentIndex = index
+                                        }
                                     }
                                 }
                             }
+                            .frame(width: 200, height: 270)
                         }
-                        .frame(width: 200, height: 270)
                     }
+                    .padding(.horizontal, (UIScreen.main.bounds.width - 200) / 2)
+                    .padding(.vertical, 60)
                 }
-                .padding(.horizontal, (UIScreen.main.bounds.width - 200) / 2)
-                .padding(.vertical, 60)
-            }
-            .scrollTargetBehavior(.viewAligned)
-            .scrollIndicators(.hidden)
-            .frame(width: UIScreen.main.bounds.width, height: 400)
-            
-            // MARK: Book Info
-            VStack(spacing: 8) {
-                Text(selectedBook?.title ?? "Book Name")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
+                .scrollTargetBehavior(.viewAligned)
+                .scrollIndicators(.hidden)
+                .frame(width: UIScreen.main.bounds.width, height: 400)
+                .animation(.easeInOut, value: selectedFilter)
                 
-                Text(selectedBook?.author ?? "Author Name")
-                    .font(.title3)
-                    .foregroundColor(.white.opacity(0.8))
+                // MARK: Book Info
+                VStack(spacing: 8) {
+                    Text(selectedBook?.title ?? "Book Name")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                    
+                    Text(selectedBook?.author ?? "Author Name")
+                        .font(.title3)
+                        .foregroundColor(.white.opacity(0.8))
+                }
+                .padding(.top, 16)
             }
-            .padding(.top, 16)
+            
+            Spacer()
         }
     }
     
@@ -106,6 +139,7 @@ struct HomeView: View {
                         .frame(height: UIScreen.main.bounds.height * 0.39)
                         .ignoresSafeArea(edges: .bottom)
                 }
+                .ignoresSafeArea()
                 
                 bookCorouselView
                 
@@ -116,7 +150,7 @@ struct HomeView: View {
             
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("BOOKS")
+                    Text("BOOKSHELF")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .padding()

@@ -24,6 +24,7 @@ struct Book : Identifiable, Codable {
     var title : String
     var author : String
     var coverURL : URL?
+    var description: String? = nil
     var status: BookStatus = .wantToRead
 }
 

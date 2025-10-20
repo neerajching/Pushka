@@ -10,15 +10,43 @@ import Foundation
 struct DeveloperPreview {
     static let shared = DeveloperPreview()
     
-    let books : [Book] = [
-        Book(title: "The Idiot", author: "Fyodor Dostoevsky",
-                coverURL: URL(string: "https://covers.openlibrary.org/b/id/8231991-L.jpg")),
-        Book(title: "War and Peace", author: "Leo Tolstoy",
-                coverURL: URL(string: "https://covers.openlibrary.org/b/id/7222246-L.jpg")),
-        Book(title: "The Idiot", author: "Fyodor Dostoevsky",
-                coverURL: URL(string: "https://covers.openlibrary.org/b/id/8231991-L.jpg")),
-        Book(title: "War and Peace", author: "Leo Tolstoy",
-                coverURL: URL(string: "https://covers.openlibrary.org/b/id/7222246-L.jpg")),
-        
-    ]
+    let books: [Book] = [
+            Book(
+                title: "The Idiot",
+                author: "Fyodor Dostoevsky",
+                coverURL: URL(string: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1657539107i/12505.jpg"),
+                status: .read
+            ),
+            Book(
+                title: "War and Peace",
+                author: "Leo Tolstoy",
+                coverURL: URL(string: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1413215930i/656.jpg"),
+                status: .currentlyReading
+            ),
+            Book(
+                title: "Crime and Punishment",
+                author: "Fyodor Dostoevsky",
+                coverURL: URL(string: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1382846449i/7144.jpg"),
+                status: .wantToRead
+            ),
+            // New books
+            Book(
+                title: "Pride and Prejudice",
+                author: "Jane Austen",
+                coverURL: URL(string: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1681804503i/129915654.jpg"),
+                status: .wantToRead
+            ),
+            Book(
+                title: "1984",
+                author: "George Orwell",
+                coverURL: URL(string: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1657781256i/61439040.jpg"),
+                status: .currentlyReading
+            ),
+            Book(
+                title: "The Great Gatsby",
+                author: "F. Scott Fitzgerald",
+                coverURL: URL(string: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1650033243i/41733839.jpg"),
+                status: .read
+            )
+        ]
 }
