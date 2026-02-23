@@ -9,7 +9,7 @@ import Foundation
 struct User : Identifiable, Codable {
     var id : UUID = UUID()
     var name : String
-    var readingList: [Book] = []
+    var readingList: [UserBook] = []
 }
 
 enum BookStatus : String, Codable , CaseIterable , Identifiable{
@@ -19,15 +19,14 @@ enum BookStatus : String, Codable , CaseIterable , Identifiable{
     var id: String { self.rawValue }
 }
 
-struct Book : Identifiable, Codable {
+struct UserBook : Identifiable, Codable {
     var id : UUID = UUID()
     var title : String
     var author : String
     var coverURL : URL?
-    var description: String? = nil
+    var bookDescription: String? = nil
     var status: BookStatus = .wantToRead
 }
-
 
 //Google Books API Model
 struct GoogleBooksResponse : Codable {
@@ -57,3 +56,5 @@ struct ImageLinks : Codable {
      coverURL: URL(string: volumeInfo.imageLinks?.thumbnail ?? "")
  )
  */
+
+

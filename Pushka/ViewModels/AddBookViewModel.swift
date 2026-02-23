@@ -10,10 +10,10 @@ import Foundation
 @MainActor
 class AddBookViewModel: ObservableObject {
     @Published var searchText: String = ""
-    @Published var books: [Book] = []
+    @Published var books: [UserBook] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
-
+    
     private let apiService = BookAPIService()
     
     func searchBooks() async {

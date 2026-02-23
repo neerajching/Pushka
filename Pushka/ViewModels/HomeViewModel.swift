@@ -8,9 +8,9 @@
 import Foundation
 
 final class HomeViewModel: ObservableObject {
-    @Published var books: [Book] = DeveloperPreview.shared.books
+    @Published var books: [UserBook] = DeveloperPreview.shared.books
     
-    func addBook(_ book: Book) {
+    func addBook(_ book: UserBook) {
         books.append(book)
     }
 }

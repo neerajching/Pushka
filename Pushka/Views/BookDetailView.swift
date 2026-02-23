@@ -1,12 +1,13 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    @State var book: Book
+    @State var book: UserBook
     @Environment(\.dismiss) private var dismiss
     
     @State private var rotation: Double = 0
     @State private var tiltAmount: CGSize = .zero
     @State private var showStatusMenu = false
+    
     
     var body: some View {
         ZStack {
@@ -99,7 +100,7 @@ struct BookDetailView: View {
                     .padding(.top, 10)
                     
                     //Book Description
-                    if let description = book.description, !description.isEmpty {
+                    if let description = book.bookDescription, !description.isEmpty {
                         VStack(alignment: .leading, spacing: 10) {
                             Text("Description")
                                 .font(.headline)
@@ -146,12 +147,12 @@ struct BookDetailView: View {
 }
 
 #Preview {
-    BookDetailView(book: Book(
+    BookDetailView(book: UserBook(
         id: UUID(),
         title: "Atomic Habits",
         author: "James Clear",
         coverURL: URL(string: "https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg")!,
-        description: "An easy and proven way to build good habits and break bad ones."
+        bookDescription: "An easy and proven way to build good habits and break bad ones."
     ))
 }
 

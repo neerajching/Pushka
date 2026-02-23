@@ -29,7 +29,7 @@ final class BookAPIService {
     private let baseURL = "https://www.googleapis.com/books/v1/volumes"
 
     // MARK: - Public Function: Search Books
-    func searchBooks(query: String) async throws -> [Book] {
+    func searchBooks(query: String) async throws -> [UserBook] {
         let data = try await fetchData(for: query)
         let response = try decodeResponse(from: data)
         let books = mapToBooks(response)
@@ -67,7 +67,7 @@ final class BookAPIService {
         }
     }
 
-    private func mapToBooks(_ response: GoogleBooksResponse) -> [Book] {
+    private func mapToBooks(_ response: GoogleBooksResponse) -> [UserBook] {
         guard let items = response.items else { return [] }
 
         return items.compactMap { item in
@@ -82,7 +82,7 @@ final class BookAPIService {
             }
             let coverURL = URL(string: imageURLString)
             
-            return Book(title: title, author: author, coverURL: coverURL)
+            return UserBook(title: title, author: author, coverURL: coverURL)
         }
     }
 }

@@ -6,15 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		84D5AA642F4CC5050060EC53 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D5AA632F4CC5050060EC53 /* CoreData.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		84776F832E6425DE000BC602 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84776F6D2E6425DA000BC602 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 84776F742E6425DA000BC602;
-			remoteInfo = Pushka;
-		};
-		84776F8D2E6425DE000BC602 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84776F6D2E6425DA000BC602 /* Project object */;
 			proxyType = 1;
@@ -26,23 +23,13 @@
 /* Begin PBXFileReference section */
 		84776F752E6425DA000BC602 /* Pushka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pushka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84776F822E6425DE000BC602 /* PushkaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushkaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84776F8C2E6425DE000BC602 /* PushkaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushkaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84D5AA632F4CC5050060EC53 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		84776F772E6425DA000BC602 /* Pushka */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Pushka;
-			sourceTree = "<group>";
-		};
-		84776F852E6425DE000BC602 /* PushkaTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PushkaTests;
-			sourceTree = "<group>";
-		};
-		84776F8F2E6425DE000BC602 /* PushkaUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PushkaUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,17 +39,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D5AA642F4CC5050060EC53 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		84776F7F2E6425DE000BC602 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84776F892E6425DE000BC602 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,8 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				84776F772E6425DA000BC602 /* Pushka */,
-				84776F852E6425DE000BC602 /* PushkaTests */,
-				84776F8F2E6425DE000BC602 /* PushkaUITests */,
+				84D5AA622F4CC5050060EC53 /* Frameworks */,
 				84776F762E6425DA000BC602 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,9 +67,16 @@
 			children = (
 				84776F752E6425DA000BC602 /* Pushka.app */,
 				84776F822E6425DE000BC602 /* PushkaTests.xctest */,
-				84776F8C2E6425DE000BC602 /* PushkaUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		84D5AA622F4CC5050060EC53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84D5AA632F4CC5050060EC53 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,38 +117,12 @@
 			dependencies = (
 				84776F842E6425DE000BC602 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				84776F852E6425DE000BC602 /* PushkaTests */,
-			);
 			name = PushkaTests;
 			packageProductDependencies = (
 			);
 			productName = PushkaTests;
 			productReference = 84776F822E6425DE000BC602 /* PushkaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		84776F8B2E6425DE000BC602 /* PushkaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84776F9C2E6425DE000BC602 /* Build configuration list for PBXNativeTarget "PushkaUITests" */;
-			buildPhases = (
-				84776F882E6425DE000BC602 /* Sources */,
-				84776F892E6425DE000BC602 /* Frameworks */,
-				84776F8A2E6425DE000BC602 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				84776F8E2E6425DE000BC602 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				84776F8F2E6425DE000BC602 /* PushkaUITests */,
-			);
-			name = PushkaUITests;
-			packageProductDependencies = (
-			);
-			productName = PushkaUITests;
-			productReference = 84776F8C2E6425DE000BC602 /* PushkaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -177,10 +138,6 @@
 						CreatedOnToolsVersion = 16.4;
 					};
 					84776F812E6425DE000BC602 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 84776F742E6425DA000BC602;
-					};
-					84776F8B2E6425DE000BC602 = {
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 84776F742E6425DA000BC602;
 					};
@@ -202,7 +159,6 @@
 			targets = (
 				84776F742E6425DA000BC602 /* Pushka */,
 				84776F812E6425DE000BC602 /* PushkaTests */,
-				84776F8B2E6425DE000BC602 /* PushkaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +172,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		84776F802E6425DE000BC602 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84776F8A2E6425DE000BC602 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,13 +195,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84776F882E6425DE000BC602 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -260,11 +202,6 @@
 			isa = PBXTargetDependency;
 			target = 84776F742E6425DA000BC602 /* Pushka */;
 			targetProxy = 84776F832E6425DE000BC602 /* PBXContainerItemProxy */;
-		};
-		84776F8E2E6425DE000BC602 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 84776F742E6425DA000BC602 /* Pushka */;
-			targetProxy = 84776F8D2E6425DE000BC602 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -478,38 +415,6 @@
 			};
 			name = Release;
 		};
-		84776F9D2E6425DE000BC602 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.negi.pushka.PushkaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Pushka;
-			};
-			name = Debug;
-		};
-		84776F9E2E6425DE000BC602 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.negi.pushka.PushkaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Pushka;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -536,15 +441,6 @@
 			buildConfigurations = (
 				84776F9A2E6425DE000BC602 /* Debug */,
 				84776F9B2E6425DE000BC602 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		84776F9C2E6425DE000BC602 /* Build configuration list for PBXNativeTarget "PushkaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84776F9D2E6425DE000BC602 /* Debug */,
-				84776F9E2E6425DE000BC602 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
