@@ -8,6 +8,7 @@
 import Foundation
 
 @MainActor
+
 class AddBookViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var books: [UserBook] = []
