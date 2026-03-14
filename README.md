@@ -39,20 +39,20 @@ Displays detailed information about the selected book.
 
 
 
-# ✨ Features
+# Features
 
-- 🔎 Search books using Google Books API
-- 📚 Add books to your personal bookshelf
-- 🎠 Interactive book carousel
-- 🗂 Filter books by reading status
+- Search books using Google Books API
+- Add books to your personal bookshelf
+- Interactive book carousel
+- Filter books by reading status
   - Want to Read
   - Currently Reading
   - Read
-- 📖 Detailed book information screen
-- 💾 Persistent storage using Core Data
+- Detailed book information screen
+- Persistent storage using Core Data
 
 
-# 🛠 Tech Stack
+# Tech Stack
 
 **Language**
 - Swift
