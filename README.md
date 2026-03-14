@@ -101,21 +101,14 @@ The bookshelf uses a custom carousel implementation built with **SwiftUI's Geome
 Book cover images are fetched using the **Google Books API**.  
 Each book provides a **thumbnail URL**, which is rendered using SwiftUI’s `AsyncImage`.
 
-This allows:
-
-- efficient asynchronous image loading  
-- automatic caching and placeholder handling  
-- smooth scrolling performance in the carousel
-
 </td>
 
 <td width="40%">
 
-<video src="Screenshots/PUSHkaScroll.mov" width="260" controls></video>
+<a href="Screenshots/PUSHkaScroll.mov">
+  <img src="Screenshots/HomeScreen.png" width="260">
+</a>
 
 </td>
 </tr>
 </table>
-
-
-
