@@ -26,7 +26,7 @@ The goal of the project was to explore advanced **SwiftUI layout techniques**, A
 
 The main screen shows books in a **carousel-style layout** with filters for reading status.
 
-![Bookshelf](Screenshots/HomeScreen.png)
+<img src="Screenshots/HomeScreen.png" width="300"/>
 
 ---
 
@@ -34,7 +34,7 @@ The main screen shows books in a **carousel-style layout** with filters for read
 
 Displays detailed information about the selected book.
 
-![Book Detail](Screenshots/BookDetail.png)
+<img src="Screenshots/BookDetail.png" width="300"/>
 
 
 
