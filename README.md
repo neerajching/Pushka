@@ -15,3 +15,23 @@ The goal of the project was to explore advanced **SwiftUI layout techniques**, A
 - Search books using Google Books API
 - Persistent storage using Core Data
 - Built fully using **SwiftUI**
+
+
+
+
+
+## 📱 Screenshots
+
+### Bookshelf Screen
+
+The main screen shows books in a **carousel-style layout** with filters for reading status.
+
+![Bookshelf](screenshots/HomeScreen.png)
+
+---
+
+### Book Detail Screen
+
+Displays detailed information about the selected book.
+
+![Book Detail](screenshots/BookDetail.png)
