@@ -111,7 +111,7 @@ This allows:
 
 <td width="40%">
 
-<video src="screenshots/PUSHkaScroll.mov" width="260" controls></video>
+<video src="Screenshots/PUSHkaScroll.mov" width="260" controls></video>
 
 </td>
 </tr>
