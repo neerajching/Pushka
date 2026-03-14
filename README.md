@@ -35,3 +35,87 @@ The main screen shows books in a **carousel-style layout** with filters for read
 Displays detailed information about the selected book.
 
 ![Book Detail](Screenshots/BookDetail.png)
+
+
+
+
+# ✨ Features
+
+- 🔎 Search books using Google Books API
+- 📚 Add books to your personal bookshelf
+- 🎠 Interactive book carousel
+- 🗂 Filter books by reading status
+  - Want to Read
+  - Currently Reading
+  - Read
+- 📖 Detailed book information screen
+- 💾 Persistent storage using Core Data
+
+
+# 🛠 Tech Stack
+
+**Language**
+- Swift
+
+**Framework**
+- SwiftUI
+
+**Architecture**
+- MVVM
+
+**Networking**
+- URLSession
+- Google Books API
+
+**Persistence**
+- Core Data
+
+**Tools**
+- Xcode
+- Git
+
+## Book Carousel
+
+<table>
+<tr>
+<td width="60%">
+
+The bookshelf uses a custom carousel implementation built with **SwiftUI's GeometryReader**.
+
+### Behavior
+
+- The **center book scales up** to highlight the selected book  
+- Books on the sides shrink to create a **depth effect**  
+- The **background dynamically updates** to the cover image of the centered book  
+- Book covers are **loaded asynchronously from URLs returned by the Google Books API**
+
+### SwiftUI Techniques Used
+
+- `GeometryReader` for layout-based scaling effects
+- `AsyncImage` for loading book cover images from remote URLs
+- `ScrollView` for horizontal scrolling
+- Dynamic scaling transformations based on view position
+
+### Image Loading
+
+Book cover images are fetched using the **Google Books API**.  
+Each book provides a **thumbnail URL**, which is rendered using SwiftUI’s `AsyncImage`.
+
+This allows:
+
+- efficient asynchronous image loading  
+- automatic caching and placeholder handling  
+- smooth scrolling performance in the carousel
+
+</td>
+
+<td width="40%">
+
+<video src="screenshots/PUSHkaScroll.mov" width="260" controls></video>
+
+</td>
+</tr>
+</table>
+
+
+
